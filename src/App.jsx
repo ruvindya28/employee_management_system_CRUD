@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     if (!employeeLoaded) {
-      axios.get("http://localhost:5000/employees")
+      axios.get("https://employee-management-system-backend-crud.onrender.com/employees")
         .then((response) => {
           setEmployeeData(response.data);
           setEmployeeLoaded(true);
@@ -31,7 +31,7 @@ function App() {
   const handleAddEmployee = (e) => {
     e.preventDefault();
     if (newEmployee.name && newEmployee.date && newEmployee.reg) {
-      axios.post("http://localhost:5000/employees", newEmployee)
+      axios.post("https://employee-management-system-backend-crud.onrender.com/employees", newEmployee)
         .then(() => {
           alert("Employee added successfully");
           setEmployeeLoaded(false);
@@ -47,7 +47,7 @@ function App() {
 
   const handleDelete = (id) => {
     if (window.confirm("Delete this employee?")) {
-      axios.delete(`http://localhost:5000/employees/${id}`)
+      axios.delete(`https://employee-management-system-backend-crud.onrender.com/employees/${id}`)
         .then(() => {
           alert("Deleted successfully");
           setEmployeeLoaded(false);
@@ -60,7 +60,7 @@ function App() {
 
   const handleUpdateEmployee = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:5000/employees/${currentEmployee._id}`, currentEmployee)
+    axios.put(`https://employee-management-system-backend-crud.onrender.com/employees/${currentEmployee._id}`, currentEmployee)
       .then(() => {
         alert("Employee updated successfully");
         setEmployeeLoaded(false);
